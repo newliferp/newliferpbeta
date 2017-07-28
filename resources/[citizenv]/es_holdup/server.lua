@@ -52,7 +52,7 @@ AddEventHandler('es_holdup:rob', function(robb)
 		TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Braquage en cours àfstore)
 		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "Vous avez commencez un braquage à, ne vous éloignez pas trop
 		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "L'alarme est activée!")
-		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "Hold the fort for ^12 ^0minutes and the money is yours!")
+		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "Tenez le coffre pour ^12 ^0minutes et l'argent est à vous !")
 		TriggerClientEvent('es_holdup:currentlyrobbing', source, robb)
 		stores[robb].lastrobbed = os.time()
 		robbers[source] = robb
@@ -64,7 +64,7 @@ AddEventHandler('es_holdup:rob', function(robb)
 					if(target)then
 					--target:addDirty_Money(store.reward) 
 					target:addMoney(store.reward)
-					TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Robbery is over at: ^2" .. store.nameofstore)
+					TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Le braquage est terminé à: ^2" .. store.nameofstore)
 					end
 				end)
 			end

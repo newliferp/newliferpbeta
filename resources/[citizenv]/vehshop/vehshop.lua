@@ -20,13 +20,13 @@ local vehshop = {
 			title = "CATEGORIES", 
 			name = "main",
 			buttons = { 
-				{name = "Vehicles", description = ""},
+				{name = "Vehicules", description = ""},
 				{name = "Motorcycles", description = ""},
 			}
 		},
 		["vehicles"] = { 
-			title = "VEHICLES", 
-			name = "vehicles",
+			title = "Vehicules", 
+			name = "Vehicules",
 			buttons = { 
 				{name = "Compacts", description = ''},
 				{name = "Coupes", description = ''},
@@ -245,8 +245,8 @@ local vehshop = {
 			}
 		},
 		["motorcycles"] = { 
-			title = "MOTORCYCLES", 
-			name = "motorcycles",
+			title = "MOTOS", 
+			name = "motos",
 			buttons = { 
 				{name = "Akuma", costs = 9000, description = {}, model = "AKUMA"},
 				{name = "Bagger", costs = 5000, description = {}, model = "bagger"},

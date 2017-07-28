@@ -5,7 +5,7 @@
 
 local firstspawn = 0
 
-local lang = 'en'
+local lang = 'fr'
 
 local txt = {
   ['en'] = {

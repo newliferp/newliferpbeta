@@ -19,7 +19,7 @@ function command_announce(who, args)
     return
   end
   table.remove(args, 1)
-  TriggerClientEvent('chatMessage', -1, 'ANNOUNCEMENT', {255, 0, 0}, table.concat(args, ' '))
+  TriggerClientEvent('chatMessage', -1, 'ANNONCE', {255, 0, 0}, table.concat(args, ' '))
 end
 
 function command_car(who, args)
@@ -102,14 +102,14 @@ function command_kick(who, args, auth, targetAuth)
   table.remove(reason, 1)
 
   if (#reason == 0) then
-    reason = 'Kicked: You have been kicked from the server'
+    reason = 'Kick: Vous avez été kick du serveur'
   else
-    reason = 'Kicked: ' .. table.concat(reason, ' ')
+    reason = 'Kick: ' .. table.concat(reason, ' ')
   end
 
   local targetId = tonumber(args[2])
 
-  adminMessage(-1, 'Player ' .. GetPlayerName(targetId) .. ' has been kicked (' .. reason .. ')')
+  adminMessage(-1, 'Le joueur ' .. GetPlayerName(targetId) .. ' a été kick (' .. reason .. ')')
   DropPlayer(targetId, reason)
 end
 
@@ -131,7 +131,7 @@ function command_ban(who, args, auth, targetAuth)
     local additionalSeconds = timeMultiplier * 24 * 60 * 60
     banEpoch = banEpoch + additionalSeconds
   else
-    adminMessage(who, 'Invalid time.  /ban 24h reason')
+    adminMessage(who, 'Temps invalide.  /ban 24h raison')
   end
 
   table.remove(reason, 1)
@@ -139,16 +139,16 @@ function command_ban(who, args, auth, targetAuth)
   table.remove(reason, 1)
 
   if (#reason == 0) then
-    reason = 'Banned: You have been kicked from the server'
+    reason = 'Banni: Vous avez été banni du serveur'
   else
-    reason = 'Banned: ' .. table.concat(reason, ' ')
+    reason = 'Banni: ' .. table.concat(reason, ' ')
   end
 
   local targetId = tonumber(args[2])
   local playerName = GetPlayerName(targetId)
 
   addBan(targetId, banEpoch, reason)
-  adminMessage(-1, 'Player ' .. playerName .. ' has been banned (' .. reason .. ')')
+  adminMessage(-1, 'Le joueur ' .. playerName .. ' a été banni (' .. reason .. ')')
   DropPlayer(targetId, reason)
 end
 
@@ -160,8 +160,8 @@ function command_freeze(who, args, auth, targetAuth)
   local targetId = tonumber(args[2])
 
   TriggerClientEvent('bs-admin:freezePlayer', targetId)
-  adminMessage(targetId, 'You have been frozen by '..GetPlayerName(who))
-  adminMessage(who, 'You have froze '..GetPlayerName(targetId))
+  adminMessage(targetId, 'Vous avez été freeze par '..GetPlayerName(who))
+  adminMessage(who, 'Vous avez freeze '..GetPlayerName(targetId))
 end
 
 function command_unfreeze(who, args, auth, targetAuth)
@@ -172,8 +172,8 @@ function command_unfreeze(who, args, auth, targetAuth)
   local targetId = tonumber(args[2])
 
   TriggerClientEvent('bs-admin:unfreezePlayer', targetId)
-  adminMessage(targetId, 'You have been unfrozen by '..GetPlayerName(who))
-  adminMessage(who, 'You have unfroze '..GetPlayerName(targetId))
+  adminMessage(targetId, 'Vous avez été unfreeze par '..GetPlayerName(who))
+  adminMessage(who, 'Vous avez unfreeze'..GetPlayerName(targetId))
 end
 
 function command_bring(who, args, auth, targetAuth)
@@ -185,8 +185,8 @@ function command_bring(who, args, auth, targetAuth)
 
   TriggerClientEvent('bs-admin:teleportPlayer', targetId, who)
 
-  adminMessage(targetId, 'You have brought by ' .. GetPlayerName(who))
-  adminMessage(who, 'Player ' .. GetPlayerName(targetId) .. ' has been brought')
+  adminMessage(targetId, 'Vous avez été téléporté par ' .. GetPlayerName(who))
+  adminMessage(who, 'Le joueur ' .. GetPlayerName(targetId) .. ' a été téléporté ')
 end
 
 function command_slap(who, args, auth, targetAuth)
@@ -197,8 +197,8 @@ function command_slap(who, args, auth, targetAuth)
 
   TriggerClientEvent('bs-admin:slap', targetId)
 
-  adminMessage(targetId, 'You have slapped by ' .. GetPlayerName(who))
-  adminMessage(who, 'Player ' .. GetPlayerName(targetId) .. ' has been slapped')
+  adminMessage(targetId, 'Vous avez été slap par ' .. GetPlayerName(who))
+  adminMessage(who, 'Le joueur ' .. GetPlayerName(targetId) .. ' a été slap')
 end
 
 function command_tp(who, args, auth, targetAuth)
@@ -210,8 +210,8 @@ function command_tp(who, args, auth, targetAuth)
 
   TriggerClientEvent('bs-admin:teleportPlayer', who, targetId)
 
-  adminMessage(targetId, 'You have been teleported to by ' .. GetPlayerName(who))
-  adminMessage(who, 'Teleported to player ' .. GetPlayerName(targetId) .. '')
+  adminMessage(targetId, 'Vous avez été téléporté par ' .. GetPlayerName(who))
+  adminMessage(who, 'Téléportation au joueur ' .. GetPlayerName(targetId) .. '')
 end
 
 function command_die(who, args)
@@ -219,7 +219,7 @@ function command_die(who, args)
     return
   end
   TriggerClientEvent('bs-admin:kill', who)
-  adminMessage(who, 'You killed yourself.')
+  adminMessage(who, 'Vous vous tuez.')
 end
 
 function command_slay(who, args, auth, targetAuth)
@@ -231,6 +231,6 @@ function command_slay(who, args, auth, targetAuth)
 
   TriggerClientEvent('bs-admin:kill', targetId)
 
-  adminMessage(targetId, 'You have been killed by ' .. GetPlayerName(who))
-  adminMessage(who, 'Player ' .. GetPlayerName(targetId) .. ' has been killed.')
+  adminMessage(targetId, 'Vous avez été tué par ' .. GetPlayerName(who))
+  adminMessage(who, 'Le joueur ' .. GetPlayerName(targetId) .. ' a été téléporté.')
 end

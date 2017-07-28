@@ -1,15 +1,15 @@
 --Main config file, mmodify it as you want
 config = {
 	useModifiedEmergency = false, --require modified emergency script // not compatible with couchdb
-	useModifiedBanking = false, --require Simple Banking // compatible with couchdb
-	useVDKInventory = false, --require VDK Inventory script // not compatible with couchdb
-	useGcIdentity = false, --require GCIdentity // not compatible with couchdb
-	enableOutfits = false, --require Skin Customization // not compatible with couchdb
-	useJobSystem = false, -- require job system // not compatible with couchdb
-	useWeashop = false, -- require es_weashop // not compatible with couchdb
+	useModifiedBanking = true, --require Simple Banking // compatible with couchdb
+	useVDKInventory = true, --require VDK Inventory script // not compatible with couchdb
+	useGcIdentity = true, --require GCIdentity // not compatible with couchdb
+	enableOutfits = true, --require Skin Customization // not compatible with couchdb
+	useJobSystem = true, -- require job system // not compatible with couchdb
+	useWeashop = true, -- require es_weashop // not compatible with couchdb
 	
-	useCopWhitelist = false, --require essentialmode + es_admin // compatible with couchdb
-	enableCheckPlate = false, --require garages // not compatible with couchdb
+	useCopWhitelist = true, --require essentialmode + es_admin // compatible with couchdb
+	enableCheckPlate = true, --require garages // not compatible with couchdb
 	
 	enableOtherCopsBlips = true,
 	useNativePoliceGarage = true,

@@ -18,7 +18,7 @@ config = {
 	propsSpawnLimitByCop = 20,
 	
 	--Available languages : 'en', 'fr', 'de'
-	lang = 'en',
+	lang = 'fr',
 	
 	--Use by job system
 	job = {

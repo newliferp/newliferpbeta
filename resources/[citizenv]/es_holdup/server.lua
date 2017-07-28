@@ -36,7 +36,7 @@ AddEventHandler('es_holdup:toofar', function(robb)
 	if(robbers[source])then
 		TriggerClientEvent('es_holdup:toofarlocal', source)
 		robbers[source] = nil
-		TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Robbery was cancelled at: ^2" .. stores[robb].nameofstore)
+		TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Braquage annulé à: ^2" .. stores[robb].nameofstore)
 	end
 end)
 
@@ -46,12 +46,12 @@ AddEventHandler('es_holdup:rob', function(robb)
 		local store = stores[robb]
 
 		if (os.time() - store.lastrobbed) < 600 and store.lastrobbed ~= 0 then
-			TriggerClientEvent('chatMessage', source, 'ROBBERY', {255, 0, 0}, "This has already been robbed recently. Please wait another: ^2" .. (1200 - (os.time() - store.lastrobbed)) .. "^0 seconds.")
+			TriggerClientEvent('chatMessage', source, 'ROBBERY', {255, 0, 0}, "Braquage trop réçent, patientez: ^2" .. (1200 - (os.time() - store.lastrobbed)) .. "^0 seconds.")
 			return
 		end
-		TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Robbery in progress at ^2" .. store.nameofstore)
-		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "You started a robbery at: ^2" .. store.nameofstore .. "^0, do not get too far away from this point!")
-		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "The Alarm has been triggered!")
+		TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Braquage en cours àfstore)
+		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "Vous avez commencez un braquage à, ne vous éloignez pas trop
+		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "L'alarme est activée!")
 		TriggerClientEvent('chatMessage', source, 'SYSTEM', {255, 0, 0}, "Hold the fort for ^12 ^0minutes and the money is yours!")
 		TriggerClientEvent('es_holdup:currentlyrobbing', source, robb)
 		stores[robb].lastrobbed = os.time()

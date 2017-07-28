@@ -1,6 +1,6 @@
 AddEventHandler('rconCommand',
   function(commandName, args)
-    if commandName:lower() == 'announce' then
+    if commandName:lower() == 'annonce' then
       announce(args)
       CancelEvent()
     end
@@ -32,7 +32,7 @@ AddEventHandler('rconCommand',
 )
 
 function announce(args)
-  TriggerClientEvent('chatMessage', -1, 'ANNOUNCEMENT', {255, 0, 0}, table.concat(args, ' '))
+  TriggerClientEvent('chatMessage', -1, 'ANNONCE', {255, 0, 0}, table.concat(args, ' '))
 end
 
 function kick(args)
@@ -40,15 +40,15 @@ function kick(args)
   table.remove(reason, 1)
 
   if (#reason == 0) then
-    reason = 'Kicked: You have been kicked from the server'
+    reason = 'Kick: Vous avez été kick du serveur'
   else
-    reason = 'Kicked: ' .. table.concat(reason, ' ')
+    reason = 'Kick: ' .. table.concat(reason, ' ')
   end
 
   local targetId = tonumber(args[1])
 
-  adminMessage(-1, 'Player ' .. GetPlayerName(targetId) .. ' has been kicked (' .. reason .. ')')
-  RconPrint('Player ' .. GetPlayerName(targetId) .. ' has been kicked (' .. reason .. ')')
+  adminMessage(-1, 'Le joueur ' .. GetPlayerName(targetId) .. ' a été kick pour (' .. reason .. ')')
+  RconPrint('Le joueur ' .. GetPlayerName(targetId) .. ' a été kick pour (' .. reason .. ')')
   DropPlayer(targetId, reason)
 end
 
@@ -69,22 +69,22 @@ function ban(args)
     local additionalSeconds = timeMultiplier * 24 * 60 * 60
     banEpoch = banEpoch + additionalSeconds
   else
-    RconPrint('Invalid time.  /ban 24h reason')
+    RconPrint('Temps invalide.  /ban 24h raison')
   end
 
   table.remove(reason, 1)
   table.remove(reason, 1)
 
   if (#reason == 0) then
-    reason = 'Banned: You have been kicked from the server'
+    reason = 'Banni: Vous avez été banni du serveur'
   else
-    reason = 'Banned: ' .. table.concat(reason, ' ')
+    reason = 'Banni: ' .. table.concat(reason, ' ')
   end
 
   addBan(targetId, banEpoch, reason)
 
-  adminMessage(-1, 'Player ' .. playerName .. ' has been banned (' .. reason .. ')')
-  RconPrint('Player ' .. playerName .. ' has been banned (' .. reason .. ')')
+  adminMessage(-1, 'Le joueur ' .. playerName .. ' a été banni (' .. reason .. ')')
+  RconPrint('Le joueur ' .. playerName .. ' a été banni (' .. reason .. ')')
 
   DropPlayer(targetId, reason)
 end
@@ -94,8 +94,8 @@ function freeze(args)
 
   TriggerClientEvent('bs-admin:freezePlayer', targetId)
 
-  adminMessage(targetId, 'You have been frozen by RCON.')
-  RconPrint('You have froze '..GetPlayerName(targetId))
+  adminMessage(targetId, 'Vous avez été freeze par RCON.')
+  RconPrint('Vous avez freeze '..GetPlayerName(targetId))
 end
 
 function unfreeze(args)
@@ -103,8 +103,8 @@ function unfreeze(args)
 
   TriggerClientEvent('bs-admin:unfreezePlayer', targetId)
 
-  adminMessage(targetId, 'You have been unfrozen by RCON.')
-  RconPrint('You have unfroze '..GetPlayerName(targetId))
+  adminMessage(targetId, 'Vous avez été unfreeze RCON.')
+  RconPrint('Vous avez unfreeze '..GetPlayerName(targetId))
 end
 
 function slap(args)
@@ -112,8 +112,8 @@ function slap(args)
 
   TriggerClientEvent('bs-admin:slap', targetId)
 
-  adminMessage(targetId, 'You have slapped by RCON.')
-  RconPrint('Player ' .. GetPlayerName(targetId) .. ' has been slapped')
+  adminMessage(targetId, 'Vous avez été slap par RCON.')
+  RconPrint('Le joueur ' .. GetPlayerName(targetId) .. ' a été slap')
 end
 
 function slay(args)
@@ -121,6 +121,6 @@ function slay(args)
 
   TriggerClientEvent('bs-admin:kill', targetId)
 
-  adminMessage(targetId, 'You have been killed by RCON.')
-  RconPrint('Player ' .. GetPlayerName(targetId) .. ' has been killed.')
+  adminMessage(targetId, 'Vous avez été tué par RCON.')
+  RconPrint('Le joueur ' .. GetPlayerName(targetId) .. ' a été tué.')
 end

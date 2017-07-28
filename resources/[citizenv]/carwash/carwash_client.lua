@@ -35,7 +35,7 @@ Citizen.CreateThread(function ()
 				garageCoords2 = vehicleWashStation[i]
 				DrawMarker(1, garageCoords2[1], garageCoords2[2], garageCoords2[3], 0, 0, 0, 0, 0, 0, 5.0, 5.0, 2.0, 0, 157, 0, 155, 0, 0, 2, 0, 0, 0, 0)
 				if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) < 5 then
-					DrawSpecialText("Press [~g~ENTER~s~] to clean your vehicle!")
+					DrawSpecialText("Appuie sur [~g~ENTER~s~] pour nettoyer ton véhicule !")
 					if(IsControlJustPressed(1, Key)) then
 						TriggerServerEvent('carwash:checkmoney')
 					end
@@ -49,14 +49,14 @@ RegisterNetEvent('carwash:success')
 AddEventHandler('carwash:success', function(price)
 	SetVehicleDirtLevel(GetVehiclePedIsUsing(GetPlayerPed(-1)))
 	SetVehicleUndriveable(GetVehiclePedIsUsing(GetPlayerPed(-1)), false)
-	msg = "Vehicle ~y~Clean~s~! ~g~-$" .. price .. "~s~!"
+	msg = "Vehicule ~y~Clean~s~! ~g~-$" .. price .. "~s~!"
 	DrawSpecialText(msg, 5000)
 	Wait(5000)
 end)
 
 RegisterNetEvent('carwash:notenoughmoney')
 AddEventHandler('carwash:notenoughmoney', function(moneyleft)
-	msg = "~h~~r~You don't have enough money! $" .. moneyleft .. " left!"
+	msg = "~h~~r~Vous n'avez pas assez d'argent ! $" .. moneyleft .. "  manquant!"
 	DrawSpecialText(msg, 5000)
 	Wait(5000)
 end)
@@ -65,7 +65,7 @@ RegisterNetEvent('carwash:free')
 AddEventHandler('carwash:free', function()
 	SetVehicleDirtLevel(GetVehiclePedIsUsing(GetPlayerPed(-1)))
 	SetVehicleUndriveable(GetVehiclePedIsUsing(GetPlayerPed(-1)), false)
-	msg = "Vehicle ~y~Clean~s~ for free!"
+	msg = "Véhicule ~y~Clean~s~ gratuitement!"
 	DrawSpecialText(msg, 5000)
 	Wait(5000)
 end)

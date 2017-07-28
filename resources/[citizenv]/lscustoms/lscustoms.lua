@@ -1003,11 +1003,11 @@ local lsc = {
 				{name = "Yellow on Blue",plateindex = 2,costs = 0, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Yellow on Black",plateindex = 1,costs = 0, description = "", centre = 0, font = 0, scale = 0.4}
 			}
-		},["repair"] = { 
+		},["reparer"] = { 
 		title = "CATEGORIES", 
 		name = "repair",
 		buttons = { 
-			{name = "Repair vehicle", description = "Full body repair and engine service.", costs = 0, centre = 0, font = 0, scale = 0.4}
+			{name = "Repair vehicle", description = "Full body repair and engine service.", costs = 750, centre = 0, font = 0, scale = 0.4}
 			
 		}
 	},

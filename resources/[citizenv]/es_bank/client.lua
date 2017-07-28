@@ -127,7 +127,7 @@ Citizen.CreateThread(function()
 
 		if robbing then
 			
-			drawTxt(0.66, 1.44, 1.0,1.0,0.4, "Robbing bank: ~r~" .. secondsRemaining .. "~w~ seconds remaining", 255, 255, 255, 255)
+			drawTxt(0.66, 1.44, 1.0,1.0,0.4, "Braquage de banque: ~r~" .. secondsRemaining .. "~w~ secondes restant", 255, 255, 255, 255)
 			
 			local pos2 = banks[bank].position
 

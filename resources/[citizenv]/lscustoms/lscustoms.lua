@@ -22,22 +22,22 @@ local lsc = {
 		from = 1,
 		to = 10,
 		["bumpers"] = { 
-			title = "bumpers", 
-			name = "bumpers",
+			title = "Pare-choc", 
+			name = "Pare-choc",
 			buttons = { 
 
 			}
 		},
 		["frontbumper"] = { 
-			title = "frontbumper", 
-			name = "frontbumper",
+			title = "Pare-choc avant", 
+			name = "Pare-choc avant",
 			buttons = { 
 
 			}
 		},
 		["rearbumper"] = { 
-			title = "rearbumper", 
-			name = "rearbumper",
+			title = "Pare-choc arrière", 
+			name = "Pare-choc arrière",
 			buttons = { 
 
 			}
@@ -49,8 +49,8 @@ local lsc = {
 				
 			}
 		},["exhaust"] = { 
-			title = "exhaust", 
-			name = "exhaust",
+			title = "Pot d'échappement", 
+			name = "Pot d'échappement",
 			buttons = { 
 				
 			}
@@ -70,21 +70,21 @@ local lsc = {
 			}
 		},
 		["hood"] = { 
-			title = "hood", 
-			name = "hood",
+			title = "Capot", 
+			name = "Capot",
 			buttons = { 
 				
 			}
 		},["rollcage"] = { 
-			title = "rollcage", 
-			name = "rollcage",
+			title = "Arceau de sécurité", 
+			name = "Arceau de sécurité",
 			buttons = { 
 				
 			}
 		},
-		["roof"] = { 
-			title = "roof", 
-			name = "roof",
+		["roof"] = { r
+			title = "Toit", 
+			name = "Toit",
 			buttons = { 
 				
 			}
@@ -98,8 +98,8 @@ local lsc = {
 		}
 		,
 		["spoiler"] = { 
-			title = "spoiler", 
-			name = "spoiler",
+			title = "Aileron", 
+			name = "Aileron",
 			buttons = { 
 				
 			}
@@ -121,16 +121,16 @@ local lsc = {
 			title = "primary colors", 
 			name = "primarymetallic",
 			buttons = { 
-				{name = "Noire",costs = 0, colorindex = 0, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Noire Carbon",costs = 0, colorindex = 147, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Noir",costs = 0, colorindex = 0, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Noir Carbon",costs = 0, colorindex = 147, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Graphite",costs = 0, colorindex = 1, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Anhracite Noire",costs = 0, colorindex = 11, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Noire Acier",costs = 0, colorindex = 2, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Noire Acier",costs = 0, colorindex = 3, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Anthracite Noire",costs = 0, colorindex = 11, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Noir Acier",costs = 0, colorindex = 2, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Noir Acier",costs = 0, colorindex = 3, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Argent",costs = 0, colorindex = 4, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Bluish Argent",costs = 0, colorindex = 5, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Rolled Acier",costs = 0, colorindex = 6, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Shadow Argentr",costs = 0, colorindex = 7, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Shadow Argent",costs = 0, colorindex = 7, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Gris Argent",costs = 0, colorindex = 8, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Noire Argent",costs = 0, colorindex = 9, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Cast Iron Argent",costs = 0, colorindex = 10, description = "", centre = 0, font = 0, scale = 0.4},
@@ -202,12 +202,12 @@ local lsc = {
 			title = "secondary colors", 
 			name = "secondarymetallic",
 			buttons = { 
-				{name = "Noire",costs = 0, colorindex = 0, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Carbon Noire",costs = 0, colorindex = 147, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Hraphite",costs = 0, colorindex = 1, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Noir",costs = 0, colorindex = 0, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Noir carbone",costs = 0, colorindex = 147, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Graphite",costs = 0, colorindex = 1, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Anhracite Noire",costs = 0, colorindex = 11, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Black Acier",costs = 0, colorindex = 2, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Acier Noire",costs = 0, colorindex = 3, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Acier Noir",costs = 0, colorindex = 3, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Silver",costs = 0, colorindex = 4, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Bluish Argent",costs = 0, colorindex = 5, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Rolled Argent",costs = 0, colorindex = 6, description = "", centre = 0, font = 0, scale = 0.4},
@@ -254,9 +254,9 @@ local lsc = {
 				{name = "Bleue Diamant" 0, colorindex = 67, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Surf Bleue",costs = 0, colorindex = 68, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Nautica Bleue"costs = 0, colorindex = 69, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Bleue",costs = 0, colorindex = 73, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Ultra Bleue",costs = 0, colorindex = 70, description = "", centre = 0, font = 0, scale = 0.4},
-				{name = "Light Bleue",costs = 0, colorindex = 74, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Bleu",costs = 0, colorindex = 73, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Bleu profond",costs = 0, colorindex = 70, description = "", centre = 0, font = 0, scale = 0.4},
+				{name = "Bleu clair",costs = 0, colorindex = 74, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Marron chocolat", description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Bison Marron",costs = 0, colorindex = 101, description = "", centre = 0, font = 0, scale = 0.4},
 				{name = "Creeen Marron",costs = 0, colorindex = 95, description = "", centre = 0, font = 0, scale = 0.4},

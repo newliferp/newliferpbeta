@@ -1,47 +1,23 @@
-local balances = {}
-
-AddEventHandler('es:playerLoaded', function(source, user)
-    balances[source] = user.bank
-
-    TriggerClientEvent('banking:updateBalance', source, user.bank)
-end)
-
-RegisterServerEvent('playerSpawned')
-AddEventHandler('playerSpawned', function()
-  TriggerEvent('es:getPlayerFromId', source, function(user)
-    balances[source] = user.bank
-
-    TriggerClientEvent('banking:updateBalance', source, user.bank)
-  end)
-end)
-
-AddEventHandler('playerDropped', function()
-  balances[source] = nil
-end)
+require "resources/essentialmode/lib/MySQL"
+MySQL:open("ip", "databasename", "username", "password")
 
 -- HELPER FUNCTIONS
 function bankBalance(player)
-  return balances[player]
+  local executed_query = MySQL:executeQuery("SELECT * FROM users WHERE identifier = '@name'", {['@name'] = player})
+  local result = MySQL:getResults(executed_query, {'bankbalance'}, "identifier")
+  return tonumber(result[1].bankbalance)
 end
 
 function deposit(player, amount)
   local bankbalance = bankBalance(player)
   local new_balance = bankbalance + amount
-  balances[player] = new_balance
-
-  TriggerEvent('es:getPlayerFromId', player, function(user)
-    user:setBankBalance(new_balance)
-  end)
+  MySQL:executeQuery("UPDATE users SET `bankbalance`='@value' WHERE identifier = '@identifier'", {['@value'] = new_balance, ['@identifier'] = player})
 end
 
 function withdraw(player, amount)
   local bankbalance = bankBalance(player)
   local new_balance = bankbalance - amount
-  balances[player] = new_balance
-
-  TriggerEvent('es:getPlayerFromId', player, function(user)
-    user:setBankBalance(new_balance)
-  end)
+  MySQL:executeQuery("UPDATE users SET `bankbalance`='@value' WHERE identifier = '@identifier'", {['@value'] = new_balance, ['@identifier'] = player})
 end
 
 function round(num, numDecimalPlaces)
@@ -52,7 +28,8 @@ end
 -- Check Bank Balance
 TriggerEvent('es:addCommand', 'checkbalance', function(source, args, user)
   TriggerEvent('es:getPlayerFromId', source, function(user)
-    local bankbalance = user.bank
+    local player = user.identifier
+    local bankbalance = bankBalance(player)
     TriggerClientEvent("es_freeroam:notify", source, "CHAR_BANK_MAZE", 1, "Maze Bank", false, "Your current account balance: ~g~$".. bankbalance)
     TriggerClientEvent("banking:updateBalance", source, bankbalance)
     CancelEvent()
@@ -79,8 +56,9 @@ AddEventHandler('bank:deposit', function(amount)
       else
       	if(tonumber(rounded) <= tonumber(user:money)) then
           user:removeMoney((rounded))
-          deposit(source, rounded)
-          local new_balance = user.bank
+          local player = user.identifier
+          deposit(player, rounded)
+          local new_balance = bankBalance(player)
           TriggerClientEvent("es_freeroam:notify", source, "CHAR_BANK_MAZE", 1, "Maze Bank", false, "Deposited: ~g~$".. rounded .." ~n~~s~New Balance: ~g~$" .. new_balance)
           TriggerClientEvent("banking:updateBalance", source, new_balance)
           TriggerClientEvent("banking:addBalance", source, rounded)
@@ -111,11 +89,12 @@ AddEventHandler('bank:withdraw', function(amount)
         TriggerClientEvent('chatMessage', source, "", {0, 0, 200}, "^1Input too high^0")
         CancelEvent()
       else
-        local bankbalance = user.bank
+        local player = user.identifier
+        local bankbalance = bankBalance(player)
         if(tonumber(rounded) <= tonumber(bankbalance)) then
-          withdraw(source, rounded)
+          withdraw(player, rounded)
           user:addMoney((rounded))
-          local new_balance = user.bank
+          local new_balance = bankBalance(player)
           TriggerClientEvent("es_freeroam:notify", source, "CHAR_BANK_MAZE", 1, "Maze Bank", false, "Withdrew: ~g~$".. rounded .." ~n~~s~New Balance: ~g~$" .. new_balance)
           TriggerClientEvent("banking:updateBalance", source, new_balance)
           TriggerClientEvent("banking:removeBalance", source, rounded)
@@ -156,17 +135,18 @@ AddEventHandler('bank:transfer', function(fromPlayer, toPlayer, amount)
           TriggerClientEvent('chatMessage', source, "", {0, 0, 200}, "^1Input too high^0")
           CancelEvent()
         else
-          local bankbalance = user.bank
+          local player = user.identifier
+          local bankbalance = bankBalance(player)
           if(tonumber(rounded) <= tonumber(bankbalance)) then
-            withdraw(source, rounded)
-            local new_balance = user.bank
+            withdraw(player, rounded)
+            local new_balance = bankBalance(player)
             TriggerClientEvent("es_freeroam:notify", source, "CHAR_BANK_MAZE", 1, "Maze Bank", false, "Transferred: ~r~-$".. rounded .." ~n~~s~New Balance: ~g~$" .. new_balance)
             TriggerClientEvent("banking:updateBalance", source, new_balance)
             TriggerClientEvent("banking:removeBalance", source, rounded)
             TriggerEvent('es:getPlayerFromId', toPlayer, function(user2)
                 local recipient = user2.identifier
-                deposit(toPlayer, rounded)
-                new_balance2 = user2.bank
+                deposit(recipient, rounded)
+                new_balance2 = bankBalance(recipient)
                 TriggerClientEvent("es_freeroam:notify", toPlayer, "CHAR_BANK_MAZE", 1, "Maze Bank", false, "Received: ~g~$".. rounded .." ~n~~s~New Balance: ~g~$" .. new_balance2)
                 TriggerClientEvent("banking:updateBalance", toPlayer, new_balance2)
                 TriggerClientEvent("banking:addBalance", toPlayer, rounded)
@@ -202,6 +182,7 @@ RegisterServerEvent('bank:givecash')
 AddEventHandler('bank:givecash', function(toPlayer, amount)
 	TriggerEvent('es:getPlayerFromId', source, function(user)
 		if (tonumber(user.money) >= tonumber(amount)) then
+			local player = user.identifier
 			user:removeMoney(amount)
 			TriggerEvent('es:getPlayerFromId', toPlayer, function(recipient)
 				recipient:addMoney(amount)
@@ -219,7 +200,8 @@ end)
 
 AddEventHandler('es:playerLoaded', function(source)
   TriggerEvent('es:getPlayerFromId', source, function(user)
-      local bankbalance = user.bank
+      local player = user.identifier
+      local bankbalance = bankBalance(player)
       TriggerClientEvent("banking:updateBalance", source, bankbalance)
     end)
 end)

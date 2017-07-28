@@ -61,7 +61,7 @@ end)
 RegisterNetEvent('es_holdup:toofarlocal')
 AddEventHandler('es_holdup:toofarlocal', function(robb)
 	holdingup = false
-	TriggerEvent('chatMessage', 'SYSTEM', {255, 0, 0}, "The robbery was cancelled, you will receive nothing.")
+	TriggerEvent('chatMessage', 'SYSTEM', {255, 0, 0}, "Le braquage est annulé vous reçevez rien.")
 	robbingName = ""
 	secondsRemaining = 0
 	incircle = false
@@ -71,7 +71,7 @@ end)
 RegisterNetEvent('es_holdup:robberycomplete')
 AddEventHandler('es_holdup:robberycomplete', function(robb)
 	holdingup = false
-	TriggerEvent('chatMessage', 'SYSTEM', {255, 0, 0}, "Robbery done, you received: ^2" .. stores[store].reward)
+	TriggerEvent('chatMessage', 'SYSTEM', {255, 0, 0}, "Braquage réussi, vous reçevez: ^2" .. stores[store].reward)
 	store = ""
 	secondsRemaining = 0
 	incircle = false
@@ -118,7 +118,7 @@ Citizen.CreateThread(function()
 					
 					if(Vdist(pos.x, pos.y, pos.z, pos2.x, pos2.y, pos2.z) < 1.0)then
 						if (incircle == false) then
-							DisplayHelpText("Press ~INPUT_CONTEXT~ to rob ~b~" .. v.nameofstore .. "~w~ beware, the police will be alerted!")
+							DisplayHelpText("Press ~INPUT_CONTEXT~ to rob ~b~" .. v.nameofstore .. "~w~ attention, la police à était alértée!")
 						end
 						incircle = true
 						if(IsControlJustReleased(1, 51))then

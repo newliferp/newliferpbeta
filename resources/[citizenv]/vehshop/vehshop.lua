@@ -21,7 +21,7 @@ local vehshop = {
 			name = "main",
 			buttons = { 
 				{name = "Vehicules", description = ""},
-				{name = "Motorcycles", description = ""},
+				{name = "Motos", description = ""},
 			}
 		},
 		["vehicles"] = { 

@@ -112,7 +112,7 @@ Citizen.CreateThread(function()
 					
 					if(Vdist(pos.x, pos.y, pos.z, pos2.x, pos2.y, pos2.z) < 1.0)then
 						if (incircle == false) then
-							DisplayHelpText("Press ~INPUT_CONTEXT~ to rob ~b~" .. v.nameofbank .. "~w~ beware, the police will be alerted!")
+							DisplayHelpText("Appuyez sur ~INPUT_CONTEXT~ pour braquer ~b~" .. v.nameofbank .. "~w~ Attention la police sera avertie !")
 						end
 						incircle = true
 						if(IsControlJustReleased(1, 51))then

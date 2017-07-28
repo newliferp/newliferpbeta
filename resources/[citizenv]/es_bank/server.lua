@@ -58,7 +58,7 @@ AddEventHandler('es_bank:rob', function(robb)
 					if(target)then
 						--target:addDirty_Money(bank.reward) 
 						target:addMoney(bank.reward)
-						TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Le braquage à etait tétminé à: ^2" .. bank.nameofbank)			
+						TriggerClientEvent('chatMessage', -1, 'NEWS', {255, 0, 0}, "Le braquage est terminé à: ^2" .. bank.nameofbank)			
 					end
 				end)
 			end

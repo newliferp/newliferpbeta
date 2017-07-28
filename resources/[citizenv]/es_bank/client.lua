@@ -55,7 +55,7 @@ end)
 RegisterNetEvent('es_bank:toofarlocal')
 AddEventHandler('es_bank:toofarlocal', function(robb)
 	robbing = false
-	TriggerEvent('chatMessage', 'SYSTEM', {255, 0, 0}, "Le braquage est annule vous recevez rien.")
+	TriggerEvent('chatMessage', 'SYSTEM', {255, 0, 0}, "Le braquage est annulé vous recevez rien.")
 	robbingName = ""
 	secondsRemaining = 0
 	incircle = false
@@ -65,7 +65,7 @@ end)
 RegisterNetEvent('es_bank:robberycomplete')
 AddEventHandler('es_bank:robberycomplete', function(robb)
 	robbing = false
-	TriggerEvent('chatMessage', 'SYSTEM', {255, 0, 0}, "Braquage reussi vous recevez: ^2" .. banks[bank].reward)
+	TriggerEvent('chatMessage', 'SYSTEM', {255, 0, 0}, "Braquage réussi vous recevez: ^2" .. banks[bank].reward)
 	bank = ""
 	secondsRemaining = 0
 	incircle = false
